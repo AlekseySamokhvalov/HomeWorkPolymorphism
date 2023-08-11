@@ -1,4 +1,4 @@
-public class Car implements Vehicle {
+public class Car implements Vehicle,  EnginePoweredVehicle{
     private String modelName;
     private int wheelsCount;
 
@@ -19,6 +19,7 @@ public class Car implements Vehicle {
         System.out.println("Меняем покрышку");
     }
 
+    @Override
     public void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
