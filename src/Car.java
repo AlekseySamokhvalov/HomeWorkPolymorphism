@@ -1,28 +1,18 @@
-public class Car implements Vehicle {
-    private String modelName;
-    private int wheelsCount;
-
+public class Car extends Vehicle {
     public Car(String modelName, int wheelsCount) {
-        this.modelName = modelName;
-        this.wheelsCount = wheelsCount;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public int getWheelsCount() {
-        return wheelsCount;
-    }
-
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+        super(modelName, wheelsCount);
     }
 
     public void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
+
+    @Override
+    public void service() {
+        System.out.println("Обслуживаем " + getModelName());
+        for (int i = 0; i < getWheelsCount(); i++) {
+            updateTyre();
+        }
+        checkEngine();
+    }
 }
-// Инкапсуляция заключается в объединении данных и методов работы с этими данными внутри объекта и скрытии деталей реализации от внешних вызовов.
-// В этом коде инкапсуляция реализована через использование приватных полей (private String modelName и private int wheelsCount в классах Car и Bicycle)
-// и предоставление публичных методов для доступа к этим данным (getModelName() и getWheelsCount()).
